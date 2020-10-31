@@ -1,0 +1,84 @@
+ACELERAR SIMULACION
+¿Donde tenemos que programar?
+→ El metodo 'metodo1( int pMeses )' de la Clase 'SimuladorBancario' del paquete 'Mundo'
+¿Que necesitamos?
+→ Numero de meses a avanzar en la simulación 
+   * ¿De donde saco ese valor? -> Parametro de entrada 'pMeses' del 'metodo1()'
+
+..PASOS..
+1. Actualizar el atributo/variable 'mesActual', agregando a su valor actual el parametro de entrada
+	'pMeses'
+2. Realizar el calculo de intereses y actualización de los saldos totales de cada cuenta:
+   * Para la cuenta de ahorros (interes compuesto [IMPORTANTE restar 1 al mesActual para el calculo]) .
+   * Para la inversión del CDT (interes simple).
+   [Para guiarse se puede revisar como se esta calculando mes a mes en el metodo avanzarMesSimulacion()]
+Extra: ¿Como obtengo un numero 'a' elevado a un numero 'b' en Java? → Math.pow(a, b);
+
+REINICIAR SIMULACION
+¿Donde tenemos que programar?
+→ El metodo 'metodo2( )' de la Clase 'SimuladorBancario' del paquete 'Mundo'
+→ El metodo 'avanzarMesSimulacion()' de la Clase 'SimuladorBancario' del paquete 'Mundo'
+→ El metodo 'metodo1( int pMeses )' de la Clase 'SimuladorBancario' del paquete 'Mundo'
+¿Que necesitamos?
+→ Dos Atributos o variables nuevas (tipo double) inicializadas en 0:
+   * Una para calcular/almacenar el saldo total antes de avanzar un mes o un numero x de meses
+   * Una para calcular/almacenar el interes total generado
+
+..PASOS..
+(Calculo del interes total generado en la simulacion)
+1. Actualizar y calcular el saldo total antes de avanzar un mes o un numero x de meses
+   ¿En Donde?
+   → Metodo 'avanzarMesSimulacion()'
+	* saldoTotalAntes = saldoCuentaAhorros + saldoCuentaCorriente + saldoCDT
+	  En donde,
+	   - saldoCuentaAhorros se puede obtener llamando al metodo 'darSaldo()' de la clase 'CuentaAhorros'		
+	   - saldoCuentaCorriente se puede obtener llamando al metodo 'darSaldo()' de la clase 'CuentaCorriente'	
+	   - saldoCDT se puede obtener llamando al metodo 'calcularValorPresente()' de la clase 'CDT'	
+		pasandole como parametro de entrada el atributo/variable (mesActual - 1)
+   → Metodo 'metodo1( int pMeses )'
+	* saldoTotalAntes = saldoCuentaAhorros + saldoCuentaCorriente + saldoCDT
+	  En donde,
+	   - saldoCuentaAhorros se puede obtener llamando al metodo 'darSaldo()' de la clase 'CuentaAhorros'		
+	   - saldoCuentaCorriente se puede obtener llamando al metodo 'darSaldo()' de la clase 'CuentaCorriente'	
+	   - saldoCDT se puede obtener llamando al metodo 'calcularValorPresente()' de la clase 'CDT'	
+		pasandole como parametro de entrada el atributo/variable (mesActual - pMeses)
+2. Actualizar y calcular el interes generado luego de avanzar un mes o un numero x de meses
+   ¿En Donde?
+   → En el metodo 'avanzarMesSimulacion()' y 'metodo1( int pMeses )'
+   ¿Que necesitamos?
+   * El saldo total antes de avanzar un mes o un numero x de meses
+   * El saldo total luego de avanzar un mes o un numero x de meses 
+	→ Se puede obtener llamando al metodo 'calcularSaldoTotal()' de la clase 'SimuladorBancario'
+   ¿Como lo calculamos?
+	interesGenerado = interesGenerado - (saldoTotalDespues - saldoTotalAntes)
+
+(¿Como reiniciamos la simulación?)
+¿En donde?
+Metodo 'metodo2()', de la clase 'SimuladorBancario'
+¿Que necesitamos?
+→ El saldo de la cuenta de ahorros
+→ El saldo de la cuenta corriente
+→ El interes total generado
+¿Como lo hacemos?
+1. Creamos una variable y guardamos el valor contenido en el atributo 'interesGenerado'
+2. Reiniciar Atributos/Variables de la clase 'SImuladorBancario' (mesActual, saldoTotalAntes, interesGenerado)
+	* mesActual = 1
+	* saldoTotalAntes = 0
+	* interesGenerado = 0
+3. Dejar en 0 el saldo del CDT
+   → ¿Como? Llamamos a la funcion 'cerrarCDT' de la clase 'SimuladorBancario'
+	Nota: Es importante recordar que al cerrar el CDT el saldo que habia en el mismo pasa a la cuenta corriente
+4. Retiramos el saldo total de la Cuenta de Ahorros
+   ¿Como? 
+    * Llamamos a la funcion 'darSaldo' de la clase 'CuentaAhorros'. Opcional: Lo almacenamos en una variable
+    * Llamamos a la funcion 'retirarCuentaAhorros' de la clase 'SimuladorBancario' y le pasamos como 
+	parametro de entrada el saldo de la cuenta de ahorros
+5. Retiramos el saldo total de la Cuenta Corriente
+   ¿Como? 
+    * Llamamos a la funcion 'darSaldo' de la clase 'CuentaCorriente'. Opcional: Lo almacenamos en una variable
+    * Llamamos a la funcion 'retirarCuentaCorriente' de la clase 'SimuladorBancario' y le pasamos como 
+	parametro de entrada el saldo de la cuenta corriente	
+6. Retornamos el valor de la variable que declaramos en el paso 1 (el cual contiene el interes total generado en
+	la simulación)
+		
+		
