@@ -231,7 +231,7 @@ public class SimuladorBancario
     	// Calculamos el saldo total de la cuenta antes de calcular x meses los intereses
     	saldoTotalAntes = ahorros.darSaldo() + corriente.darSaldo() + inversion.calcularValorPresente(mesActual - pMeses);
     	// Calculamos el interes total para x cantidad de meses del saldo de la cuenta de ahorros
-    	ahorros.actualizarSaldoPorAceleracion( mesActual );    	   	   
+    	ahorros.actualizarSaldoPorAceleracion( pMeses );    	   	   
     	// Calculamos el interes generado restando el saldo total despues de avanzar el x meses - el saldo total antes de avanzar x cantidad de meses
     	interesGenerado = interesGenerado + (calcularSaldoTotal() - saldoTotalAntes);
     }

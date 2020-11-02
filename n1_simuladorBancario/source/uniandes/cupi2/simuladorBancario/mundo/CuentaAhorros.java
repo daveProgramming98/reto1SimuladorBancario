@@ -96,8 +96,7 @@ public class CuentaAhorros
      */
     public void actualizarSaldoPorAceleracion( int cMeses )
     {
-    	int Meses = cMeses - 1;
-        saldo = saldo * Math.pow(( 1 + interesMensual ), Meses);
+    	saldo = saldo * Math.pow(( 1 + interesMensual ), cMeses);
     }
       
 }
