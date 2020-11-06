@@ -1,9 +1,10 @@
 # Reto #1 Ciclo 2 UTP "Entendiendo el Código + Tipos de Interés + Solución" - Java - Mision TIC 2022
-Video Explicación: https://youtu.be/sKDD2pLQeWY
 
-→ En el archivo PropuestaPasosReto2TiendaLibros.txt, encontraras los pasos, por si lo quieres resolver sin ver la solución.
+Video Explicación: https://youtu.be/q3PPKST5nGg
 
-Cabe resaltar que el ejercicio Tienda de Libros no es de mi autoria, solo le doy solución a 2 requerimientos.
+→ En el archivo PropuestaPasosReto1SimuladorBancario.txt, encontraras los pasos, por si lo quieres resolver sin ver la solución.
+
+Cabe resaltar que el ejercicio Simulador Bancario no es de mi autoria, solo le doy solución a 2 requerimientos.
 
 A continuación doy los creditos al autor del ejercicio:
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -12,7 +13,6 @@ A continuación doy los creditos al autor del ejercicio:
  * Licenciado bajo el esquema Academic Free License version 2.1 
  *
  * Proyecto Cupi2 (http://cupi2.uniandes.edu.co)
- * Ejercicio: n3_tiendaDeLibros
+ * Ejercicio: n1_simuladorBancario
  * Autor: Equipo Cupi2 2017
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-
